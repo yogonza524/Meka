@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="com.core.meka.PrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.core.meka.PrincipalController">
    <children>
       <BorderPane layoutX="185.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -37,40 +37,52 @@
                      <children>
                         <ImageView fitHeight="94.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/1.png" />
+                              <Image url="@../img/negro/2.png" />
                            </image>
                         </ImageView>
-                        <Label text="Busqueda" />
+                        <Label text="Busqueda">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox fx:id="SBR_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
                         <ImageView fitHeight="94.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/2.png" />
+                              <Image url="@../img/negro/14.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="TOP_CENTER" prefHeight="62.0" prefWidth="150.0" text="SBR" wrapText="true" />
+                        <Label alignment="TOP_CENTER" prefHeight="62.0" prefWidth="150.0" text="SBR" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox fx:id="reglas_asoc_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                      <children>
                         <ImageView fitHeight="94.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/3.png" />
+                              <Image url="@../img/negro/13.png" />
                            </image>
                         </ImageView>
-                        <Label text="Reglas de asociacion" />
+                        <Label text="Reglas de asociacion">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox fx:id="agentes_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
                      <children>
                         <ImageView fitHeight="94.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/4.png" />
+                              <Image url="@../img/negro/1.png" />
                            </image>
                         </ImageView>
-                        <Label text="Agentes" />
+                        <Label text="Agentes">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox fx:id="geneticos_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
@@ -80,7 +92,10 @@
                               <Image url="@../img/5.png" />
                            </image>
                         </ImageView>
-                        <Label text="Geneticos" />
+                        <Label text="Geneticos">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox fx:id="bayes_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -90,67 +105,88 @@
                               <Image url="@../img/6.png" />
                            </image>
                         </ImageView>
-                        <Label text="Naive-Bayes" />
+                        <Label text="Naive-Bayes">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox fx:id="perceptron_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/7.png" />
+                              <Image url="@../img/negro/9.png" />
                            </image>
                         </ImageView>
-                        <Label text="Perceptron" />
+                        <Label text="Perceptron">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox fx:id="mlp_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/8.png" />
+                              <Image url="@../img/negro/10.png" />
                            </image>
                         </ImageView>
-                        <Label text="MLP" />
+                        <Label text="MLP">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox fx:id="svm_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/9.png" />
+                              <Image url="@../img/negro/8.png" />
                            </image>
                         </ImageView>
-                        <Label text="SVM" />
+                        <Label text="SVM">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox fx:id="hopfield_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/10.png" />
+                              <Image url="@../img/negro/6.png" />
                            </image>
                         </ImageView>
-                        <Label text="Hopfield" />
+                        <Label text="Hopfield">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox fx:id="som_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/11.gif" />
+                              <Image url="@../img/negro/7.png" />
                            </image>
                         </ImageView>
-                        <Label text="SOM" />
+                        <Label text="SOM">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox fx:id="cluster_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/12.png" />
+                              <Image url="@../img/negro/4.png" />
                            </image>
                         </ImageView>
-                        <Label text="Clustering" />
+                        <Label text="Clustering">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                </children>
