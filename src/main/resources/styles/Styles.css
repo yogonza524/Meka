@@ -1,0 +1,6 @@
+.button {
+    -fx-font-weight: bold;
+}
+.bordeado{
+    -fx-border: solid 2px grey;
+}

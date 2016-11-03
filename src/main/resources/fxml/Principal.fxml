@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="com.core.meka.PrincipalController">
+   <children>
+      <BorderPane layoutX="185.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <BorderPane.margin>
+                  <Insets top="10.0" />
+               </BorderPane.margin>
+               <children>
+                  <VBox fx:id="busqueda_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="94.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/1.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Busqueda" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="SBR_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                     <children>
+                        <ImageView fitHeight="94.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/2.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="TOP_CENTER" prefHeight="62.0" prefWidth="150.0" text="SBR" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="reglas_asoc_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                     <children>
+                        <ImageView fitHeight="94.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/3.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Reglas de asociacion" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="agentes_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
+                     <children>
+                        <ImageView fitHeight="94.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/4.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Agentes" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="geneticos_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/5.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Geneticos" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="bayes_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/6.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Naive-Bayes" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="perceptron_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/7.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Perceptron" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="mlp_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/8.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="MLP" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="svm_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/9.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="SVM" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="hopfield_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/10.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Hopfield" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="som_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/11.gif" />
+                           </image>
+                        </ImageView>
+                        <Label text="SOM" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="cluster_vbox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/12.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Clustering" />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </center>
+         <top>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <items>
+                  <ImageView fitHeight="97.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/meka.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="69.0" prefWidth="504.0" text="Proyecto Meka. Suite de aplicaciones informaticas integradas para resolver distintos problemas de Inteligencia Artificial." wrapText="true" />
+               </items>
+            </ToolBar>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
