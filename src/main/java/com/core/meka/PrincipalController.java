@@ -9,9 +9,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.ScaleTransition;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -24,6 +27,8 @@ import javafx.util.Duration;
  */
 public class PrincipalController implements Initializable {
 
+    @FXML private GridPane grid;
+    
     @FXML private VBox busqueda_vbox;
     @FXML private VBox SBR_vbox;
     @FXML private VBox mlp_vbox;
@@ -56,7 +61,6 @@ public class PrincipalController implements Initializable {
                 }
             }
         });
-        
     }
 
     private void initButtons() {
