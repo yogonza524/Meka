@@ -129,6 +129,9 @@ public class BusquedaController implements Initializable {
         ejecutar_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                if (generado == null) {
+                    return;
+                }
                 if (algoritmo_combo.getSelectionModel().getSelectedIndex() < 0) {
                     return;
                 }
@@ -143,16 +146,26 @@ public class BusquedaController implements Initializable {
                 }
                 //Ejecutar busqueda
                 String result = "";
+                String inicio = nodo_inicial_combo.getSelectionModel().getSelectedItem().toString();
+                String fin = nodo_final_combo.getSelectionModel().getSelectedItem().toString();
                 switch(algoritmo_combo.getSelectionModel().getSelectedIndex()){
-                    case 0: break; //Primero en profundidad
+                    case 0: 
+                        result = AlgoritmoController.busquedaProfundidad(generado, inicio, fin);
+                        break; //Primero en profundidad
                     case 1: 
                         result = AlgoritmoController.busquedaAmplitud(generado, result, 
-                            nodo_inicial_combo.getSelectionModel().getSelectedItem().toString(), 
-                            nodo_final_combo.getSelectionModel().getSelectedItem().toString());
+                            inicio, 
+                            fin);
                         break; //Escalada Simple
-                    case 2: break; //Primero en amplitud
-                    case 3: break; //Escalada Maxima
-                    case 4: break; //A*
+                    case 2: 
+                        result = AlgoritmoController.busquedaEscaladaSimple(generado, inicio, fin);
+                        break; //Primero en amplitud
+                    case 3: 
+                        result = AlgoritmoController.busquedaEscaladaMaxima(generado, inicio, fin);
+                        break; //Escalada Maxima
+                    case 4: 
+                        result = AlgoritmoController.aEstrella(generado, inicio, fin);
+                        break; //A*
                 }
                 
                 result_txt.setText(result);

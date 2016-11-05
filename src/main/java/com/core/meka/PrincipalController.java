@@ -12,7 +12,10 @@ import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -41,6 +44,15 @@ public class PrincipalController implements Initializable {
     @FXML private VBox som_vbox;
     @FXML private VBox hopfield_vbox;
     @FXML private VBox svm_vbox;
+    
+    //Imagenes
+    @FXML private ImageView imgBusqueda;
+    @FXML private ImageView sbr;
+    @FXML private ImageView ra;
+    @FXML private ImageView agentes;
+    @FXML private ImageView geneticos;
+    @FXML private ImageView bayes;
+    @FXML private ImageView perceptron;
     /**
      * Initializes the controller class.
      */
@@ -72,7 +84,104 @@ public class PrincipalController implements Initializable {
     }
 
     private void initComboBoxes() {
-        
+        imgBusqueda.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                imgBusqueda.setImage(new Image("/img/cambiarColor/Busquedas.png"));
+                imgBusqueda.getScene().setCursor(Cursor.HAND);
+            }
+        });
+        imgBusqueda.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                imgBusqueda.setImage(new Image("/img/negro/2.png"));
+                imgBusqueda.getScene().setCursor(Cursor.DEFAULT);
+            }
+        });
+        sbr.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                sbr.setImage(new Image("/img/cambiarColor/SBR.png"));
+                sbr.getScene().setCursor(Cursor.HAND);
+            }
+        });
+        sbr.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                sbr.setImage(new Image("/img/negro/14.png"));
+                sbr.getScene().setCursor(Cursor.DEFAULT);
+            }
+        });        
+        ra.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                ra.setImage(new Image("/img/cambiarColor/ReglasAso.png"));
+                ra.getScene().setCursor(Cursor.HAND);
+            }
+        });
+        ra.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                ra.setImage(new Image("/img/negro/13.png"));
+                ra.getScene().setCursor(Cursor.DEFAULT);
+            }
+        });
+        agentes.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                agentes.setImage(new Image("/img/cambiarColor/Agentes.png"));
+                agentes.getScene().setCursor(Cursor.HAND);
+            }
+        });
+        agentes.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                agentes.setImage(new Image("/img/negro/1.png"));
+                agentes.getScene().setCursor(Cursor.DEFAULT);
+            }
+        });
+        geneticos.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                geneticos.setImage(new Image("/img/cambiarColor/Geneticos.png"));
+                geneticos.getScene().setCursor(Cursor.HAND);
+            }
+        });
+        geneticos.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                geneticos.setImage(new Image("/img/negro/5.png"));
+                geneticos.getScene().setCursor(Cursor.DEFAULT);
+            }
+        });
+        bayes.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                bayes.setImage(new Image("/img/cambiarColor/Geneticos.png"));
+                bayes.getScene().setCursor(Cursor.HAND);
+            }
+        });
+        bayes.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                bayes.setImage(new Image("/img/negro/6.png"));
+                bayes.getScene().setCursor(Cursor.DEFAULT);
+            }
+        });
+        perceptron.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                perceptron.setImage(new Image("/img/cambiarColor/Perceptron.png"));
+                perceptron.getScene().setCursor(Cursor.HAND);
+            }
+        });
+        perceptron.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                perceptron.setImage(new Image("/img/negro/9.png"));
+                perceptron.getScene().setCursor(Cursor.DEFAULT);
+            }
+        });
     }
     
 }
