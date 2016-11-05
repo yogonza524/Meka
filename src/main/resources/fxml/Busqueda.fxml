@@ -49,8 +49,8 @@
                                  <bottom>
                                     <HBox alignment="TOP_RIGHT" prefHeight="44.0" prefWidth="178.0" BorderPane.alignment="TOP_RIGHT">
                                        <children>
-                                          <Button mnemonicParsing="false" text="Generar" />
-                                          <Button mnemonicParsing="false" text="Borrar">
+                                          <Button fx:id="generar_btn" mnemonicParsing="false" text="Generar" />
+                                          <Button fx:id="borrar_btn" mnemonicParsing="false" text="Borrar">
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
@@ -70,7 +70,7 @@
                <bottom>
                   <Accordion fx:id="ac2" prefHeight="165.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <panes>
-                      <TitledPane fx:id="tab2" animated="false" collapsible="false" text="Configuracion">
+                      <TitledPane fx:id="tab2" animated="false" text="Configuracion">
                            <content>
                               <VBox prefHeight="200.0" prefWidth="100.0">
                                  <children>
@@ -80,7 +80,7 @@
                                     <ComboBox fx:id="nodo_final_combo" prefWidth="150.0" promptText="Nodo final" />
                                     <Label text="Algoritmo" />
                                     <ComboBox fx:id="algoritmo_combo" prefWidth="150.0" promptText="Algoritmo" />
-                                    <Button alignment="TOP_RIGHT" mnemonicParsing="false" text="Ejecutar">
+                                    <Button fx:id="ejecutar_btn" alignment="TOP_RIGHT" mnemonicParsing="false" text="Ejecutar">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
@@ -117,7 +117,7 @@
                            <content>
                               <BorderPane prefHeight="200.0" prefWidth="200.0">
                                  <center>
-                                    <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Resultados" BorderPane.alignment="CENTER" />
+                                    <TextArea fx:id="result_txt" prefHeight="200.0" prefWidth="200.0" promptText="Resultados" BorderPane.alignment="CENTER" />
                                  </center>
                               </BorderPane>
                            </content>

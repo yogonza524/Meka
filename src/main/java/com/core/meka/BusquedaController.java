@@ -5,6 +5,7 @@
  */
 package com.core.meka;
 
+import com.core.controller.AlgoritmoController;
 import com.core.controller.GrafoController;
 import com.core.entities.Delta;
 import com.core.entities.NodoCircular;
@@ -25,11 +26,13 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Accordion;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
@@ -72,6 +75,10 @@ public class BusquedaController implements Initializable {
     
     @FXML private MenuItem cargar_menu_item;
     @FXML private TextArea grafo_txt;
+    @FXML private TextArea result_txt;
+    @FXML private Button generar_btn;
+    @FXML private Button borrar_btn;
+    @FXML private Button ejecutar_btn;
     
     private Grafo generado;
     
@@ -100,7 +107,57 @@ public class BusquedaController implements Initializable {
     }
 
     private void initBUttons() {
+        borrar_btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                grafo_txt.setText("");
+                generado = null;
+            }
+        });
+        generar_btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (!grafo_txt.getText().isEmpty()) {
+                    generado = GrafoController.desdeString(grafo_txt.getText().toUpperCase());
+                    if (generado != null) {
+                        mostrarGrafo(generado);
+                    }
+                }
+            }
+        });
         
+        ejecutar_btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (algoritmo_combo.getSelectionModel().getSelectedIndex() < 0) {
+                    return;
+                }
+                if (nodo_inicial_combo.getSelectionModel().getSelectedIndex() < 0) {
+                    return;
+                }
+                if (nodo_final_combo.getSelectionModel().getSelectedIndex() < 0) {
+                    return;
+                }
+                if (nodo_final_combo.getSelectionModel().getSelectedItem().equals(nodo_inicial_combo.getSelectionModel().getSelectedItem())) {
+                    return;
+                }
+                //Ejecutar busqueda
+                String result = "";
+                switch(algoritmo_combo.getSelectionModel().getSelectedIndex()){
+                    case 0: break; //Primero en profundidad
+                    case 1: 
+                        result = AlgoritmoController.busquedaAmplitud(generado, result, 
+                            nodo_inicial_combo.getSelectionModel().getSelectedItem().toString(), 
+                            nodo_final_combo.getSelectionModel().getSelectedItem().toString());
+                        break; //Escalada Simple
+                    case 2: break; //Primero en amplitud
+                    case 3: break; //Escalada Maxima
+                    case 4: break; //A*
+                }
+                
+                result_txt.setText(result);
+            }
+        });
     }
 
     private void initKeyBoard() {
@@ -145,21 +202,21 @@ public class BusquedaController implements Initializable {
                   }
                 }
             }
-
-            private void mostrarGrafo(Grafo grafo) {
-                
-                nodo_inicial_combo.getItems().clear();
-                nodo_final_combo.getItems().clear();
-                
-                Map<String, Nodo> treeNodos = Grafo.ordenarNodos(grafo.getNodos());
-                for(Map.Entry<String,Nodo> entry : treeNodos.entrySet()){
-                    nodo_inicial_combo.getItems().add(entry.getKey());
-                    nodo_final_combo.getItems().add(entry.getKey());
-                }
-                
-                dibujarGrafo(canvas, grafo);
-            }
         });
+    }
+    
+    private void mostrarGrafo(Grafo grafo) {
+                
+        nodo_inicial_combo.getItems().clear();
+        nodo_final_combo.getItems().clear();
+
+        Map<String, Nodo> treeNodos = Grafo.ordenarNodos(grafo.getNodos());
+        for(Map.Entry<String,Nodo> entry : treeNodos.entrySet()){
+            nodo_inicial_combo.getItems().add(entry.getKey());
+            nodo_final_combo.getItems().add(entry.getKey());
+        }
+
+        BusquedaController.dibujarGrafo(canvas, root, grafo);
     }
 
     private void initComboBoxes() {
@@ -171,7 +228,7 @@ public class BusquedaController implements Initializable {
         }
     }
     
-    private void dibujarGrafo(Pane panel, Grafo grafo){
+    public static void dibujarGrafo(Pane canvas, Group root, Grafo grafo){
         if (grafo != null) {
             List<NodoCircular> circulos = new ArrayList<>();
             List<Text> rotulos = new ArrayList<>();
@@ -239,9 +296,16 @@ public class BusquedaController implements Initializable {
                         l.setEndX(destinoCircular.getCenterX());
                         l.setEndY(destinoCircular.getCenterY());
                         
+//                        l.startXProperty().bind( origenCircular.layoutXProperty().add(origenCircular.getBoundsInParent().getWidth() / 2.0));
+//                        l.startYProperty().bind( origenCircular.layoutYProperty().add(origenCircular.getBoundsInParent().getHeight() / 2.0));
+//
+//                        l.endXProperty().bind( destinoCircular.layoutXProperty().add( destinoCircular.getBoundsInParent().getWidth() / 2.0));
+//                        l.endYProperty().bind( destinoCircular.layoutYProperty().add( destinoCircular.getBoundsInParent().getHeight() / 2.0));
+                        
                         lines.add(l);
                         
-                        Delta.enableDrag(c,t,l);
+                        Delta.enableDrag(c,t,l, grafo, root, canvas);
+//                        Delta.enableDragDestino(destinoCircular,t,l);
                     }
             }
             }
@@ -260,9 +324,9 @@ public class BusquedaController implements Initializable {
                 root.getChildren().add(t);
             }
 
-            panel.getChildren().remove(0);
+            canvas.getChildren().remove(0);
             
-            panel.getChildren().add(root);
+            canvas.getChildren().add(root);
         }
     }
     
