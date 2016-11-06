@@ -53,6 +53,11 @@ public class PrincipalController implements Initializable {
     @FXML private ImageView geneticos;
     @FXML private ImageView bayes;
     @FXML private ImageView perceptron;
+    @FXML private ImageView mlp; //10
+    @FXML private ImageView svm; //8
+    @FXML private ImageView hopfield; //6
+    @FXML private ImageView som; //7
+    @FXML private ImageView clustering; //4
     /**
      * Initializes the controller class.
      */
@@ -157,14 +162,14 @@ public class PrincipalController implements Initializable {
         bayes.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                bayes.setImage(new Image("/img/cambiarColor/Geneticos.png"));
+                bayes.setImage(new Image("/img/cambiarColor/Bayes.png"));
                 bayes.getScene().setCursor(Cursor.HAND);
             }
         });
         bayes.setOnMouseExited(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                bayes.setImage(new Image("/img/negro/6.png"));
+                bayes.setImage(new Image("/img/negro/12.png"));
                 bayes.getScene().setCursor(Cursor.DEFAULT);
             }
         });
@@ -180,6 +185,76 @@ public class PrincipalController implements Initializable {
             public void handle(MouseEvent event) {
                 perceptron.setImage(new Image("/img/negro/9.png"));
                 perceptron.getScene().setCursor(Cursor.DEFAULT);
+            }
+        });
+        mlp.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mlp.setImage(new Image("/img/cambiarColor/PMC.png"));
+                mlp.getScene().setCursor(Cursor.HAND);
+            }
+        });
+        mlp.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mlp.setImage(new Image("/img/negro/10.png"));
+                mlp.getScene().setCursor(Cursor.DEFAULT);
+            }
+        });
+        svm.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                svm.setImage(new Image("/img/cambiarColor/MVS.png"));
+                svm.getScene().setCursor(Cursor.HAND);
+            }
+        });
+        svm.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                svm.setImage(new Image("/img/negro/8.png"));
+                svm.getScene().setCursor(Cursor.DEFAULT);
+            }
+        });
+        hopfield.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                hopfield.setImage(new Image("/img/cambiarColor/Hopfiel.png"));
+                hopfield.getScene().setCursor(Cursor.HAND);
+            }
+        });
+        hopfield.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                hopfield.setImage(new Image("/img/negro/6.png"));
+                hopfield.getScene().setCursor(Cursor.DEFAULT);
+            }
+        });
+        som.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                som.setImage(new Image("/img/cambiarColor/MAO.png"));
+                som.getScene().setCursor(Cursor.HAND);
+            }
+        });
+        som.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                som.setImage(new Image("/img/negro/7.png"));
+                som.getScene().setCursor(Cursor.DEFAULT);
+            }
+        });
+        clustering.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                clustering.setImage(new Image("/img/cambiarColor/Cluster.png"));
+                clustering.getScene().setCursor(Cursor.HAND);
+            }
+        });
+        clustering.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                clustering.setImage(new Image("/img/negro/4.png"));
+                clustering.getScene().setCursor(Cursor.DEFAULT);
             }
         });
     }

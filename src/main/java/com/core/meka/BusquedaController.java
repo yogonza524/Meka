@@ -12,6 +12,7 @@ import com.core.entities.NodoCircular;
 import com.core.entity.Arista;
 import com.core.entity.Grafo;
 import com.core.entity.Nodo;
+import com.core.entity.Solucion;
 import com.core.util.Algoritmos;
 import java.io.File;
 import java.io.IOException;
@@ -81,6 +82,8 @@ public class BusquedaController implements Initializable {
     @FXML private Button ejecutar_btn;
     
     private Grafo generado;
+    private static List<NodoCircular> circulos;
+    private static List<Line> lines;
     
     @FXML private ComboBox nodo_inicial_combo;
     @FXML private ComboBox nodo_final_combo;
@@ -104,6 +107,9 @@ public class BusquedaController implements Initializable {
         root = new Group();
         root.setAutoSizeChildren(true);
         canvas.getChildren().add(root);
+        
+        circulos = new ArrayList<>();
+        lines = new ArrayList<>();
     }
 
     private void initBUttons() {
@@ -144,31 +150,97 @@ public class BusquedaController implements Initializable {
                 if (nodo_final_combo.getSelectionModel().getSelectedItem().equals(nodo_inicial_combo.getSelectionModel().getSelectedItem())) {
                     return;
                 }
+                //Limpiar lineas
+                for(Line l : lines){
+                    l.setStrokeWidth(1);
+                }
                 //Ejecutar busqueda
                 String result = "";
                 String inicio = nodo_inicial_combo.getSelectionModel().getSelectedItem().toString();
                 String fin = nodo_final_combo.getSelectionModel().getSelectedItem().toString();
+                
+                Solucion sol = null;
                 switch(algoritmo_combo.getSelectionModel().getSelectedIndex()){
                     case 0: 
-                        result = AlgoritmoController.busquedaProfundidad(generado, inicio, fin);
+                        sol = AlgoritmoController.busquedaProfundidadConSolucion(generado, inicio, fin);
+                        result = ((sol != null) ? sol.getPasos() : "Sin solucion");
                         break; //Primero en profundidad
                     case 1: 
-                        result = AlgoritmoController.busquedaAmplitud(generado, result, 
+                        sol = AlgoritmoController.busquedaAmplitud(generado, 
                             inicio, 
                             fin);
+                        result = ((sol!= null) ? sol.getPasos() : "Sin solucion");
                         break; //Escalada Simple
                     case 2: 
-                        result = AlgoritmoController.busquedaEscaladaSimple(generado, inicio, fin);
+                        sol = AlgoritmoController.busquedaEscaladaSimpleConSolucion(generado, inicio, fin);
+                        result = ((sol != null) ? sol.getPasos() : "Sin solucion");
                         break; //Primero en amplitud
                     case 3: 
-                        result = AlgoritmoController.busquedaEscaladaMaxima(generado, inicio, fin);
+                        sol = AlgoritmoController.busquedaEscaladaMaximaConSolucion(generado, inicio, fin);
+                        result = ((sol != null )? sol.getPasos() : "Sin solucion");
                         break; //Escalada Maxima
                     case 4: 
-                        result = AlgoritmoController.aEstrella(generado, inicio, fin);
+                        sol = AlgoritmoController.aEstrellaConNodos(generado, inicio, fin);
+                        result = ((sol != null )? sol.getPasos() : "Sin solucion");
                         break; //A*
                 }
-                
                 result_txt.setText(result);
+                if (sol != null && sol.getNodos() != null && !sol.getNodos().isEmpty() && generado != null) {
+                    //Nodos a dibujar
+                    List<String> nodosConectados = conectar(sol.getNodos());
+                    for(String conexion : nodosConectados){
+                        Line l = buscarLinea(conexion);
+                        if (l != null) {
+                            l.setStrokeWidth(5);
+                        }
+                    }
+                }
+            }
+
+            private Line buscarLinea(String key) {
+                Line l = null;
+                if (key != null && !key.isEmpty()) {
+                    for(Line line : lines){
+                        String id = line.getId();
+                        String idInverted = id.split("-")[1] + "-" + id.split("-")[0];
+                        if (id.equals(key) || idInverted.equals(key)) {
+                            l = line;
+                            break;
+                        }
+                    }
+                }
+                return l;
+            }
+            
+            private List<String> aristasNombre(Map<String,Arista> aristas){
+                List<String> result = null;
+                if (aristas != null && !aristas.isEmpty()) {
+                    result = new ArrayList<>();
+                    for(Map.Entry<String,Arista> entry : aristas.entrySet()){
+                        result.add(entry.getKey());
+                    }
+                }
+                return result;
+            }
+
+            private List<String> conectar(List<Nodo> nodos) {
+                List<String> result = null;
+                if (nodos != null && !nodos.isEmpty()) {
+                    result = new ArrayList<>();
+                    String arista = "";
+                    for(Nodo nodo : nodos){
+                        if (arista.contains("-")) {
+                            arista += nodo.getNombre();
+                            result.add(arista);
+                            arista = nodo.getNombre() + "-";
+                        }
+                        else{
+                            arista += nodo.getNombre() + "-";
+                        }
+                    }
+                    System.out.println("Nodos conectados: " + Arrays.toString(result.toArray()));
+                }
+                return result;
             }
         });
     }
@@ -243,9 +315,9 @@ public class BusquedaController implements Initializable {
     
     public static void dibujarGrafo(Pane canvas, Group root, Grafo grafo){
         if (grafo != null) {
-            List<NodoCircular> circulos = new ArrayList<>();
+            circulos = new ArrayList<>();//Inicializo el panel de circulos dibujados
             List<Text> rotulos = new ArrayList<>();
-            List<Line> lines = new ArrayList<>();
+            lines = new ArrayList<>();
 //            List<StackPane> stacks = new ArrayList<>();
             for(Map.Entry<String, Nodo> entry : grafo.getNodos().entrySet()){
                 Random r = new Random();
@@ -314,7 +386,7 @@ public class BusquedaController implements Initializable {
 //
 //                        l.endXProperty().bind( destinoCircular.layoutXProperty().add( destinoCircular.getBoundsInParent().getWidth() / 2.0));
 //                        l.endYProperty().bind( destinoCircular.layoutYProperty().add( destinoCircular.getBoundsInParent().getHeight() / 2.0));
-                        
+                        l.setId(en.getKey().split("\\(")[0]);
                         lines.add(l);
                         
                         Delta.enableDrag(c,t,l, grafo, root, canvas);
