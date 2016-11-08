@@ -78,6 +78,22 @@ public class PrincipalController implements Initializable {
                 }
             }
         });
+        mlp_vbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getClickCount() == 1) {
+                    Util.showMainWindowMaximized("Perceptron Multi-Capa", "/fxml/MLP.fxml", MLPController.class, true, false);
+                }
+            }
+        });
+        som_vbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getClickCount() == 1) {
+                    Util.showMainWindowMaximized("Mapas Auto-Organizados", "/fxml/SOM.fxml", SOMController.class, true, false);
+                }
+            }
+        });
     }
 
     private void initButtons() {
