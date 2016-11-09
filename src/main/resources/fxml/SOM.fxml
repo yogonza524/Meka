@@ -8,6 +8,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToolBar?>
@@ -15,8 +16,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="com.core.meka.SOMController">
+<AnchorPane id="AnchorPane" fx:id="base" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.core.meka.SOMController">
    <children>
       <BorderPane layoutX="190.0" layoutY="76.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -43,11 +43,18 @@
                                                 <Insets top="5.0" />
                                              </VBox.margin>
                                           </CheckBox>
-                                          <Button fx:id="cargar_pesos_btn" mnemonicParsing="false" text="Cargar Pesos (W)">
+                                          <Label text="Patrones de entrenamiento">
                                              <VBox.margin>
                                                 <Insets top="5.0" />
                                              </VBox.margin>
-                                          </Button>
+                                          </Label>
+                                          <TextArea fx:id="patrones_train_text" prefHeight="200.0" prefWidth="200.0" promptText="Patrones" />
+                                          <Label fx:id="pesos_label" text="Pesos (W)">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <TextArea fx:id="pesos_text" prefHeight="200.0" prefWidth="200.0" promptText="Pesos separados por &quot;;&quot;" />
                                        </children>
                                     </VBox>
                                  </center>
@@ -71,7 +78,15 @@
                <center>
                   <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                     <tabs>
-                      <Tab text="Resultados" />
+                      <Tab text="Resultados">
+                           <content>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <center>
+                                    <TextArea fx:id="result_text" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                           </content>
+                        </Tab>
                     </tabs>
                   </TabPane>
                </center>
