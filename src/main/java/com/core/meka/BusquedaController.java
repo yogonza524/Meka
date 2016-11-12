@@ -40,12 +40,15 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TitledPane;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontSmoothingType;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextBoundsType;
@@ -318,7 +321,8 @@ public class BusquedaController implements Initializable {
             circulos = new ArrayList<>();//Inicializo el panel de circulos dibujados
             List<Text> rotulos = new ArrayList<>();
             lines = new ArrayList<>();
-//            List<StackPane> stacks = new ArrayList<>();
+            List<Text> textoDeAristas = new ArrayList<>();
+            
             for(Map.Entry<String, Nodo> entry : grafo.getNodos().entrySet()){
                 Random r = new Random();
                 
@@ -380,17 +384,35 @@ public class BusquedaController implements Initializable {
                         
                         l.setEndX(destinoCircular.getCenterX());
                         l.setEndY(destinoCircular.getCenterY());
-                        
-//                        l.startXProperty().bind( origenCircular.layoutXProperty().add(origenCircular.getBoundsInParent().getWidth() / 2.0));
-//                        l.startYProperty().bind( origenCircular.layoutYProperty().add(origenCircular.getBoundsInParent().getHeight() / 2.0));
-//
-//                        l.endXProperty().bind( destinoCircular.layoutXProperty().add( destinoCircular.getBoundsInParent().getWidth() / 2.0));
-//                        l.endYProperty().bind( destinoCircular.layoutYProperty().add( destinoCircular.getBoundsInParent().getHeight() / 2.0));
                         l.setId(en.getKey().split("\\(")[0]);
+                        
+                        l.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(MouseEvent event) {
+                                l.setStrokeWidth(5);
+                            }
+                        });
+                        
+                        l.setOnMouseExited(new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(MouseEvent event) {
+                                l.setStrokeWidth(1);
+                            }
+                        });
+                        
                         lines.add(l);
                         
+                        //Agregar los rotulos a las artistas
+                        Text aristaText = new Text(en.getValue().getValor() + "");
+                        aristaText.setLayoutX((l.getLayoutX() + l.getEndX() + l.getStartX()) / 2 );
+                        aristaText.setLayoutY((l.getLayoutY() + l.getEndY() + l.getStartY()) / 2 );
+                        aristaText.setBoundsType(TextBoundsType.VISUAL);
+                        aristaText.setFontSmoothingType(FontSmoothingType.LCD);
+                        aristaText.setFont(Font.font("Verdana", FontPosture.ITALIC, 18));
+                        
+                        textoDeAristas.add(aristaText);
+                        
                         Delta.enableDrag(c,t,l, grafo, root, canvas);
-//                        Delta.enableDragDestino(destinoCircular,t,l);
                     }
             }
             }
@@ -399,6 +421,10 @@ public class BusquedaController implements Initializable {
             
             for(Line l : lines){
                 root.getChildren().add(l);
+            }
+            
+            for(Text t : textoDeAristas){
+                root.getChildren().add(t);
             }
             
             for(Circle c : circulos){
