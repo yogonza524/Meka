@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -18,6 +19,7 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane id="AnchorPane" fx:id="base" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.core.meka.SOMController">
@@ -47,11 +49,12 @@
                                                 <Insets top="5.0" />
                                              </VBox.margin>
                                           </CheckBox>
-                                          <Label text="Patrones de entrenamiento">
-                                             <VBox.margin>
-                                                <Insets top="5.0" />
-                                             </VBox.margin>
-                                          </Label>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Label fx:id="patrones_train_label" prefHeight="28.0" prefWidth="179.0" text="Patrones de entrenamiento" />
+                                                <Hyperlink fx:id="question_train" text="?" />
+                                             </children>
+                                          </HBox>
                                           <TextArea fx:id="patrones_train_text" prefHeight="200.0" prefWidth="200.0" promptText="Patrones" text="-0.54,0.36;&#10;0.16,0.70;&#10;-0.80,-0.18;&#10;-0.36,-0.52;&#10;-0.64,0.46;&#10;-0.40,0.34;&#10;-0.54,0.36" />
                                           <Label fx:id="pesos_label" text="Pesos (W)">
                                              <VBox.margin>

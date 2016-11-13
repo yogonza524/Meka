@@ -25,11 +25,13 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
@@ -37,11 +39,18 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import org.apache.commons.lang.ArrayUtils;
+import org.controlsfx.control.PopOver;
 
 /**
  * FXML Controller class
@@ -88,6 +97,10 @@ public class SOMController implements Initializable {
     @FXML private MenuItem guardar_patrones_menuitem;
     @FXML private MenuItem guardar_pesos_menuitem;
     @FXML private MenuItem guardar_patrones_test_menuitem;
+    @FXML private Label patrones_train_label;
+    @FXML private Hyperlink question_train;
+    
+    private PopOver patronesEntrenamientoPopover;
     
     private SOMCluster som;
     
@@ -97,6 +110,7 @@ public class SOMController implements Initializable {
         initButtons();
         initListeners();
         initComboBoxes();
+        initPopovers();
     }    
 
     private void initConfig() {
@@ -430,6 +444,14 @@ public class SOMController implements Initializable {
                 }
             }
         });
+        
+        question_train.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                
+                patronesEntrenamientoPopover.show(question_train);   
+            }
+        });
     }
 
     private void initComboBoxes() {
@@ -532,5 +554,24 @@ public class SOMController implements Initializable {
         for(TextField t : fields){
             t.setText("");
         }
+    }
+
+    private void initPopovers() {
+        patronesEntrenamientoPopover = new PopOver();
+        
+        StackPane pane = new StackPane();
+        BorderPane b = new BorderPane();
+        b.setPadding(new Insets(10, 20, 10, 20));
+        VBox vbox = new VBox();
+        Label title = new Label("Configuracion correcta");
+        Label content = new Label("Aqui un ejemplo de configuracion");
+        Label content1 = new Label("de patrones de entrenamiento de dimension 2");
+        content.setPadding(new Insets(5, 0, 0, 0));
+        content1.setPadding(new Insets(5, 0, 0, 0));
+        content.setWrapText(true);
+        vbox.getChildren().addAll(title, content, content1, new ImageView(new Image("/img/config1.png")));
+        b.setCenter(vbox);
+        
+        patronesEntrenamientoPopover.setContentNode(b);
     }
 }
