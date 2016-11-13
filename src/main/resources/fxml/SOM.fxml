@@ -6,6 +6,10 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
@@ -31,11 +35,11 @@
                                     <VBox prefHeight="353.0" prefWidth="208.0" BorderPane.alignment="CENTER">
                                        <children>
                                           <Label text="Neuronas" />
-                                          <TextField fx:id="neuronas_text" promptText="Cantidad" />
+                                          <TextField fx:id="neuronas_text" promptText="Cantidad" text="4" />
                                           <Label text="Epocas" />
-                                          <TextField fx:id="epocas_text" promptText="Cantidad" />
+                                          <TextField fx:id="epocas_text" promptText="Cantidad" text="1" />
                                           <Label text="Dimension" />
-                                          <TextField fx:id="entradas_text" promptText="Dimension" />
+                                          <TextField fx:id="entradas_text" promptText="Dimension" text="2" />
                                           <Label prefHeight="37.0" prefWidth="178.0" text="Funcion de vecindad" wrapText="true" />
                                           <ComboBox fx:id="funcion_vecindad_combo" prefHeight="26.0" prefWidth="202.0" promptText="Utilizarla" />
                                           <CheckBox fx:id="pesos_check" mnemonicParsing="false" text="Pesos (W) aleatorios">
@@ -48,13 +52,13 @@
                                                 <Insets top="5.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <TextArea fx:id="patrones_train_text" prefHeight="200.0" prefWidth="200.0" promptText="Patrones" />
+                                          <TextArea fx:id="patrones_train_text" prefHeight="200.0" prefWidth="200.0" promptText="Patrones" text="-0.54,0.36;&#10;0.16,0.70;&#10;-0.80,-0.18;&#10;-0.36,-0.52;&#10;-0.64,0.46;&#10;-0.40,0.34;&#10;-0.54,0.36" />
                                           <Label fx:id="pesos_label" text="Pesos (W)">
                                              <VBox.margin>
                                                 <Insets top="5.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <TextArea fx:id="pesos_text" prefHeight="200.0" prefWidth="200.0" promptText="Pesos separados por &quot;;&quot;" />
+                                          <TextArea fx:id="pesos_text" prefHeight="200.0" prefWidth="200.0" promptText="Pesos separados por &quot;;&quot;" text="0.5,-0.3;&#10;-0.5,0.8;&#10;-0.9,-0.7;&#10;-0.2,-0.8" />
                                        </children>
                                     </VBox>
                                  </center>
@@ -77,9 +81,9 @@
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                  <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                  <TabPane fx:id="tab" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                     <tabs>
-                      <Tab text="Resultados">
+                      <Tab fx:id="train_tab" text="Entrenamiento">
                            <content>
                               <BorderPane prefHeight="200.0" prefWidth="200.0">
                                  <center>
@@ -99,21 +103,6 @@
                                     <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                        <center>
                                           <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                             <right>
-                                                <Accordion fx:id="act3" BorderPane.alignment="CENTER">
-                                                  <panes>
-                                                    <TitledPane fx:id="tact3" animated="false" collapsible="false" text="Salida">
-                                                         <content>
-                                                            <BorderPane prefHeight="200.0" prefWidth="200.0">
-                                                               <center>
-                                                                  <TextArea prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-                                                               </center>
-                                                            </BorderPane>
-                                                         </content>
-                                                    </TitledPane>
-                                                  </panes>
-                                                </Accordion>
-                                             </right>
                                              <left>
                                                 <Accordion fx:id="act1" BorderPane.alignment="CENTER">
                                                   <panes>
@@ -121,7 +110,7 @@
                                                          <content>
                                                             <BorderPane prefHeight="200.0" prefWidth="200.0">
                                                                <center>
-                                                                  <TextArea prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                                                  <TextArea fx:id="neuronas_test_text" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
                                                                </center>
                                                             </BorderPane>
                                                          </content>
@@ -129,32 +118,45 @@
                                                   </panes>
                                                 </Accordion>
                                              </left>
-                                             <top>
+                                             <bottom>
+                                                <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                                  <items>
+                                                    <Button fx:id="run_test_button" mnemonicParsing="false" text="Ejecutar Test" />
+                                                  </items>
+                                                </ToolBar>
+                                             </bottom>
+                                             <center>
                                                 <Accordion fx:id="act2" BorderPane.alignment="CENTER">
                                                   <panes>
                                                     <TitledPane fx:id="tact2" animated="false" collapsible="false" text="Patrones de test">
                                                          <content>
                                                             <BorderPane prefHeight="200.0" prefWidth="200.0">
                                                                <center>
-                                                                  <TextArea prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                                                  <TextArea fx:id="patrones_test_text" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
                                                                </center>
                                                             </BorderPane>
                                                          </content>
                                                     </TitledPane>
                                                   </panes>
                                                 </Accordion>
-                                             </top>
-                                             <bottom>
-                                                <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                                  <items>
-                                                    <Button mnemonicParsing="false" text="Ejecutar Test" />
-                                                      <Button mnemonicParsing="false" text="Borrar todo" />
-                                                      <Button mnemonicParsing="false" text="Borrar salida" />
-                                                  </items>
-                                                </ToolBar>
-                                             </bottom>
+                                             </center>
                                           </BorderPane>
                                        </center>
+                                       <bottom>
+                                          <Accordion fx:id="act3" BorderPane.alignment="CENTER">
+                                            <panes>
+                                              <TitledPane fx:id="tact3" animated="false" collapsible="false" text="Salida">
+                                                   <content>
+                                                      <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                                         <center>
+                                                            <TextArea fx:id="salida_test_text" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                                         </center>
+                                                      </BorderPane>
+                                                   </content>
+                                              </TitledPane>
+                                            </panes>
+                                          </Accordion>
+                                       </bottom>
                                     </BorderPane>
                                  </center>
                               </BorderPane>
@@ -165,6 +167,36 @@
                </center>
             </BorderPane>
          </center>
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="Archivo">
+                  <items>
+                    <MenuItem fx:id="cargar_patrones_menuitem" mnemonicParsing="false" text="Cargar patrones de entrenamiento" />
+                        <MenuItem fx:id="cargar_pesos_menuitem" mnemonicParsing="false" text="Cargar pesos de entrenamiento" />
+                        <MenuItem fx:id="guardar_patrones_menuitem" mnemonicParsing="false" text="Guardar patrones de entrenamiento" />
+                        <MenuItem fx:id="guardar_pesos_menuitem" mnemonicParsing="false" text="Guardar pesos de entrenamiento" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="patrones_test_menuitem" mnemonicParsing="false" text="Cargar patrones de test" />
+                        <MenuItem fx:id="guardar_patrones_test_menuitem" mnemonicParsing="false" text="Guardar patrones de test" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Operaciones">
+                  <items>
+                    <MenuItem fx:id="nueva_simulacion_menuitem" mnemonicParsing="false" text="Nueva simulacion" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="ejecutar_entrenamiento_menuitem" mnemonicParsing="false" text="Ejecutar entrenamiento" />
+                        <MenuItem fx:id="ejecutar_test_menuitem" mnemonicParsing="false" text="Ejecutar test" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Ayuda">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Acerca de" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
       </BorderPane>
    </children>
 </AnchorPane>

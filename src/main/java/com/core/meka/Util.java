@@ -5,6 +5,9 @@
  */
 package com.core.meka;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -560,5 +563,14 @@ public class Util {
         Util.mainController = mainController;
     }
     
-    
+    public static String leerFichero(String dir) throws FileNotFoundException, IOException{
+        String result = "";
+        FileReader fr = new FileReader(dir);
+        BufferedReader bf = new BufferedReader(fr);
+        String line = "";
+        while ((line = bf.readLine()) != null) {
+            result = result + line;
+        }
+        return result;
+    }
 }

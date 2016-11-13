@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import com.core.meka.Util;
+import java.io.IOException;
 import org.apache.commons.lang.ArrayUtils;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -11,6 +13,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
@@ -41,12 +44,20 @@ public class SOMTest {
     // The methods must be annotated with annotation @Test. For example:
     //
      @Test
+     @Ignore
      public void ingresarPatronesTest() {
          String patrones = "0.1,3.6,36.0;"
                  + "\n     5. 7, 5,2,25.87;";
          String[] result = patrones.replaceAll(" ", "").replaceAll("\n", "").split(";");
          System.out.println(validarFormatoPatrones(3, patrones));
     }
+     
+     @Test
+     @Ignore
+     public void leerFicheroTest() throws IOException{
+         String dir = "/home/gonza/Descargas/grafo.txt";
+         System.out.println(Util.leerFichero(dir));
+     }
      
      private boolean validarFormatoPatrones(int dimension, String patrones){
         boolean result = true;
