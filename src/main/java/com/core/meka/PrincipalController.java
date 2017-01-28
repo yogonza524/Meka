@@ -6,6 +6,7 @@
 package com.core.meka;
 
 import com.core.controllers.KNNController;
+import com.core.controllers.KmeansController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.ScaleTransition;
@@ -76,6 +77,14 @@ public class PrincipalController implements Initializable {
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 1) {
                     Util.showMainWindowMaximized("Busqueda en grandes espacios", "/fxml/Busqueda.fxml", BusquedaController.class, true, false);
+                }
+            }
+        });
+        clustering.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getClickCount() == 1) {
+                    Util.showMainWindowMaximized("K-Means (Clustering)", "/fxml/Kmeans.fxml", KmeansController.class, true, false);
                 }
             }
         });

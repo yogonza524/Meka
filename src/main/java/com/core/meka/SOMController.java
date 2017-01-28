@@ -11,6 +11,7 @@ import com.core.entity.Grafo;
 import com.core.somcluster.HyperbolicFunction;
 import com.core.somcluster.Matrix;
 import com.core.somcluster.SOMCluster;
+import com.core.util.PopOverUtil;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -98,7 +99,6 @@ public class SOMController implements Initializable {
     @FXML private MenuItem guardar_pesos_menuitem;
     @FXML private MenuItem guardar_patrones_test_menuitem;
     @FXML private Label patrones_train_label;
-    @FXML private Hyperlink question_train;
     
     private PopOver patronesEntrenamientoPopover;
     
@@ -445,13 +445,6 @@ public class SOMController implements Initializable {
             }
         });
         
-        question_train.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                
-                patronesEntrenamientoPopover.show(question_train);   
-            }
-        });
     }
 
     private void initComboBoxes() {
@@ -573,5 +566,35 @@ public class SOMController implements Initializable {
         b.setCenter(vbox);
         
         patronesEntrenamientoPopover.setContentNode(b);
+    }
+    
+    @FXML
+    private void popOverNewuronas(ActionEvent e){
+        PopOverUtil.mostrarPopConImagen(new PopOver(), new ImageView(new Image("/img/ayuda5.png")), neuronas_text);
+    }
+    
+    @FXML
+    private void mostrarAyudaEpocas(ActionEvent e){
+        PopOverUtil.mostrarPopConImagen(new PopOver(), new ImageView(new Image("/img/ayuda6.png")), epocas_text);
+    }
+    
+    @FXML
+    private void mostrarAyudaDimension(ActionEvent e){
+        PopOverUtil.mostrarPopConImagen(new PopOver(), new ImageView(new Image("/img/ayuda7.png")), entradas_text);
+    }
+    
+    @FXML
+    private void mostrarAyudaFuncionVecindad(ActionEvent e){
+        PopOverUtil.mostrarPopConImagen(new PopOver(), new ImageView(new Image("/img/ayuda8.png")), entradas_text);
+    }
+    
+    @FXML
+    private void mostrarAyudaPatronesEntrenamiento(ActionEvent e){
+        PopOverUtil.mostrarPopConImagen(new PopOver(), new ImageView(new Image("/img/ayuda9.png")), patrones_train_text);
+    }
+    
+    @FXML
+    private void mostrarAyudaPesos(ActionEvent e){
+        PopOverUtil.mostrarPopConImagen(new PopOver(), new ImageView(new Image("/img/ayuda10.png")), pesos_text);
     }
 }

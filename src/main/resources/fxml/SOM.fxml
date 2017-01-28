@@ -6,7 +6,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -36,31 +35,23 @@
                                  <center>
                                     <VBox prefHeight="353.0" prefWidth="208.0" BorderPane.alignment="CENTER">
                                        <children>
-                                          <Label text="Neuronas" />
+                                          <Hyperlink onAction="#popOverNewuronas" text="Neuronas" />
                                           <TextField fx:id="neuronas_text" promptText="Cantidad" text="4" />
-                                          <Label text="Epocas" />
+                                          <Hyperlink onAction="#mostrarAyudaEpocas" text="Epocas" />
                                           <TextField fx:id="epocas_text" promptText="Cantidad" text="1" />
-                                          <Label text="Dimension" />
+                                          <Hyperlink onAction="#mostrarAyudaDimension" text="Dimension" />
                                           <TextField fx:id="entradas_text" promptText="Dimension" text="2" />
-                                          <Label prefHeight="37.0" prefWidth="178.0" text="Funcion de vecindad" wrapText="true" />
+                                          <Hyperlink onAction="#mostrarAyudaFuncionVecindad" text="Funcion de vecindad" />
                                           <ComboBox fx:id="funcion_vecindad_combo" prefHeight="26.0" prefWidth="202.0" promptText="Utilizarla" />
                                           <CheckBox fx:id="pesos_check" mnemonicParsing="false" text="Pesos (W) aleatorios">
                                              <VBox.margin>
                                                 <Insets top="5.0" />
                                              </VBox.margin>
                                           </CheckBox>
-                                          <HBox prefHeight="100.0" prefWidth="200.0">
-                                             <children>
-                                                <Label fx:id="patrones_train_label" prefHeight="28.0" prefWidth="179.0" text="Patrones de entrenamiento" />
-                                                <Hyperlink fx:id="question_train" text="?" />
-                                             </children>
-                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" />
+                                          <Hyperlink onAction="#mostrarAyudaPatronesEntrenamiento" text="Patrones de entrenamiento" />
                                           <TextArea fx:id="patrones_train_text" prefHeight="200.0" prefWidth="200.0" promptText="Patrones" text="-0.54,0.36;&#10;0.16,0.70;&#10;-0.80,-0.18;&#10;-0.36,-0.52;&#10;-0.64,0.46;&#10;-0.40,0.34;&#10;-0.54,0.36" />
-                                          <Label fx:id="pesos_label" text="Pesos (W)">
-                                             <VBox.margin>
-                                                <Insets top="5.0" />
-                                             </VBox.margin>
-                                          </Label>
+                                          <Hyperlink onAction="#mostrarAyudaPesos" text="Pesos (W)" />
                                           <TextArea fx:id="pesos_text" prefHeight="200.0" prefWidth="200.0" promptText="Pesos separados por &quot;;&quot;" text="0.5,-0.3;&#10;-0.5,0.8;&#10;-0.9,-0.7;&#10;-0.2,-0.8" />
                                        </children>
                                     </VBox>
@@ -190,11 +181,6 @@
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="ejecutar_entrenamiento_menuitem" mnemonicParsing="false" text="Ejecutar entrenamiento" />
                         <MenuItem fx:id="ejecutar_test_menuitem" mnemonicParsing="false" text="Ejecutar test" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Ayuda">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Acerca de" />
                   </items>
                 </Menu>
               </menus>
