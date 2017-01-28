@@ -79,7 +79,7 @@
                               <Image url="@../img/negro/1.png" />
                            </image>
                         </ImageView>
-                        <Label text="Agentes">
+                        <Label text="KNN">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font></Label>

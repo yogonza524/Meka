@@ -5,6 +5,7 @@
  */
 package com.core.meka;
 
+import com.core.controllers.KNNController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.ScaleTransition;
@@ -91,6 +92,15 @@ public class PrincipalController implements Initializable {
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 1) {
                     Util.showMainWindowMaximized("Mapas Auto-Organizados", "/fxml/SOM.fxml", SOMController.class, true, false);
+                }
+            }
+        });
+        
+        agentes_vbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getClickCount() == 1) {
+                    Util.showMainWindowMaximized("K-Vecinos próximos", "/fxml/Knn.fxml", KNNController.class, true, false);
                 }
             }
         });

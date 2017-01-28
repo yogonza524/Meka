@@ -317,6 +317,7 @@ public class BusquedaController implements Initializable {
     }
     
     public static void dibujarGrafo(Pane canvas, Group root, Grafo grafo){
+        //Verifico que el grafo no sea nulo
         if (grafo != null) {
             circulos = new ArrayList<>();//Inicializo el panel de circulos dibujados
             List<Text> rotulos = new ArrayList<>();
