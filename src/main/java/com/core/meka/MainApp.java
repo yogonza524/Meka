@@ -1,5 +1,6 @@
 package com.core.meka;
 
+import com.aquafx_project.AquaFx;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,7 @@ public class MainApp extends Application {
         stage.setTitle("Meka 1.0");
         stage.getIcons().add(new Image("/img/meka.png"));
         stage.setScene(scene);
+        AquaFx.style();
         stage.show();
     }
 
