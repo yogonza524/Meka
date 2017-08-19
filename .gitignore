@@ -12,3 +12,13 @@
 hs_err_pid*
 /target/
 /nbproject/
+/modulos/ModuloArbolDecision/nbproject/
+/modulos/ModuloArbolDecision/target/
+/modulos/ModuloKMeans/target/
+/modulos/ModuloKVecinos/target/
+/modulos/ModuloMVS/target/
+/modulos/ModuloPMC/target/
+/modulos/ModuloPerceptron/target/
+/modulos/ModuloKMeans/nbproject/
+/modulos/ModuloKVecinos/nbproject/
+/modulos/ModuloPMC/nbproject/

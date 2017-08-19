@@ -1,0 +1,7 @@
+.button {
+    -fx-font-weight: bold;
+}
+#numberaxis{
+    -fx-font: 15px Verdana;
+    -fx-stroke: lightyellow;
+}

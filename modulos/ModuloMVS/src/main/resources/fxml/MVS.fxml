@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" minHeight="650.0" minWidth="1100.0" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pichon.modulomvs.MVSController">
+   <children>
+      <BorderPane layoutX="71.0" layoutY="31.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <left>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TitledPane animated="false" collapsible="false" minHeight="401.0" minWidth="297.0" prefHeight="496.0" prefWidth="297.0" text="Cargar entradas" VBox.vgrow="ALWAYS">
+                    <content>
+                      <AnchorPane prefHeight="441.0" prefWidth="295.0">
+                           <children>
+                              <VBox layoutX="18.6" layoutY="19.6" prefHeight="366.0" prefWidth="276.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox prefHeight="19.0" prefWidth="276.0">
+                                       <children>
+                                          <Label text="Puntos de entrada">
+                                             <HBox.margin>
+                                                <Insets left="10.0" top="3.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Hyperlink onAction="#preguntaEntradas" text="?">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Hyperlink>
+                                          <Label fx:id="errorFormatoPuntosEntrada" text="Error de formato" textFill="RED">
+                                             <HBox.margin>
+                                                <Insets left="5.0" top="3.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <TextArea fx:id="ingresoEntradas" prefHeight="137.0" prefWidth="256.0" text="1,1,1;&#10;1,2,1;&#10;-1,0,-1;&#10;0,-1,-1;" VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </TextArea>
+                                    <HBox prefHeight="44.0" prefWidth="276.0">
+                                       <children>
+                                          <Pane prefHeight="44.0" prefWidth="108.0" HBox.hgrow="ALWAYS" />
+                                          <Button mnemonicParsing="false" onAction="#generarStringMax" text="Generar">
+                                             <HBox.margin>
+                                                <Insets top="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" text="Resetear">
+                                             <HBox.margin>
+                                                <Insets left="25.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <Label text="String de maximizacion">
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="textStringMax">
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <HBox prefHeight="19.0" prefWidth="276.0">
+                                       <children>
+                                          <Label text="Alfas">
+                                             <HBox.margin>
+                                                <Insets left="10.0" top="3.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Hyperlink onAction="#preguntaAlfas" text="?">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Hyperlink>
+                                          <Label fx:id="errorFormatoAlfas" text="Error de formato" textFill="RED">
+                                             <HBox.margin>
+                                                <Insets left="5.0" top="3.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <TextField fx:id="textAlfas" text="0.625; 0; 0.375; 0.25;">
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <HBox prefHeight="44.0" prefWidth="276.0">
+                                       <children>
+                                          <Pane prefHeight="44.0" prefWidth="96.0" HBox.hgrow="ALWAYS" />
+                                          <Button mnemonicParsing="false" onAction="#comenzarAprendizaje" text="Aprender">
+                                             <HBox.margin>
+                                                <Insets right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+               </children>
+            </VBox>
+         </left>
+         <bottom>
+            <HBox prefHeight="226.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TitledPane animated="false" collapsible="false" maxWidth="297.0" minHeight="229.0" minWidth="297.0" prefHeight="229.0" prefWidth="297.0" text="Clasificar" HBox.hgrow="ALWAYS">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="198.0" prefWidth="295.0">
+                           <children>
+                              <VBox layoutX="64.0" layoutY="-1.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="19.0" prefWidth="276.0">
+                                       <children>
+                                          <Label text="Puntos a clasificar">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Hyperlink onAction="#preguntaClasificar" text="?" />
+                                          <Label fx:id="errorFormatoClasificar" text="Error de formato" textFill="RED">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <TextArea fx:id="textClasificar" prefHeight="155.0" prefWidth="256.0" text="1,2;&#10;-2,-2;" VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </TextArea>
+                                    <HBox prefHeight="27.0" prefWidth="276.0">
+                                       <children>
+                                          <Pane prefHeight="27.0" prefWidth="132.0" HBox.hgrow="ALWAYS">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Pane>
+                                          <Button mnemonicParsing="false" onAction="#clasificarPuntos" text="Clasificar">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <TitledPane animated="false" collapsible="false" prefHeight="226.0" prefWidth="804.0" text="Resultados" HBox.hgrow="ALWAYS">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="211.0" prefWidth="802.0">
+                           <children>
+                              <TextArea fx:id="resultado" layoutX="27.6" layoutY="29.6" prefHeight="187.0" prefWidth="764.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+               </children>
+            </HBox>
+         </bottom>
+         <center>
+            <TitledPane collapsible="false" prefHeight="437.0" prefWidth="804.0" text="Grafico" BorderPane.alignment="CENTER">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <content>
+                              <StackPane fx:id="canvas" prefHeight="800.0" prefWidth="1100.0" />
+                           </content>
+                        </ScrollPane>
+                     </center>
+                  </BorderPane>
+               </content>
+            </TitledPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

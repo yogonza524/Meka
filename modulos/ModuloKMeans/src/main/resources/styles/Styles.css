@@ -1,0 +1,11 @@
+.button {
+    -fx-font-weight: bold;
+}
+#textNegrita{
+    -fx-font: 15px Verdana;
+    -fx-stroke: lightyellow;
+}
+#numberaxis{
+    -fx-font: 15px Verdana;
+    -fx-stroke: lightyellow;
+}

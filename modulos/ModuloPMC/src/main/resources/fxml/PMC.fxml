@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pichon.modulopmc.FXMLControllerPMC">
+   <children>
+      <BorderPane layoutX="-7.0" layoutY="-2.0" prefHeight="650.0" prefWidth="1101.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TitledPane animated="false" collapsible="false" minHeight="401.0" minWidth="297.0" prefHeight="496.0" prefWidth="297.0" text="Cargar entradas" VBox.vgrow="ALWAYS">
+                     <content>
+                        <AnchorPane prefHeight="441.0" prefWidth="295.0">
+                           <children>
+                              <TabPane layoutX="-0.40000000000000036" layoutY="-0.40000000000000036" prefHeight="365.0" prefWidth="305.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-10.0">
+                                <tabs>
+                                  <Tab text="Red      ">
+                                    <content>
+                                      <AnchorPane minHeight="334.0" minWidth="291.0" prefHeight="334.0" prefWidth="291.0">
+                                             <children>
+                                                <VBox prefHeight="366.0" prefWidth="276.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="30.0">
+                                                   <children>
+                                                      <HBox alignment="TOP_RIGHT" prefHeight="32.0" prefWidth="246.0">
+                                                         <children>
+                                                            <Label text="Entradas">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" top="15.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField fx:id="entradas" prefHeight="25.0" prefWidth="100.0" text="4">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" right="20.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets top="5.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                      <HBox alignment="TOP_RIGHT" prefHeight="32.0" prefWidth="246.0">
+                                                         <children>
+                                                            <Label text="Capas ocultas">
+                                                               <HBox.margin>
+                                                                  <Insets left="25.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField fx:id="capasOcultas" prefHeight="25.0" prefWidth="100.0" text="2">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" right="20.0" top="8.0" />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="TOP_RIGHT" prefHeight="32.0" prefWidth="246.0">
+                                                         <children>
+                                                            <Label text="Perceptron x Capa">
+                                                               <HBox.margin>
+                                                                  <Insets left="25.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField fx:id="perceptronXCapa" prefHeight="25.0" prefWidth="100.0" text="3">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" right="20.0" top="8.0" />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="TOP_RIGHT" prefHeight="32.0" prefWidth="246.0">
+                                                         <children>
+                                                            <Label text="Salidas">
+                                                               <HBox.margin>
+                                                                  <Insets left="25.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField fx:id="salidas" prefHeight="25.0" prefWidth="100.0" text="2">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" right="20.0" top="8.0" />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="TOP_RIGHT" prefHeight="32.0" prefWidth="246.0">
+                                                         <children>
+                                                            <Label text="Alfa">
+                                                               <HBox.margin>
+                                                                  <Insets left="25.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField fx:id="valorAlfa" prefHeight="25.0" prefWidth="100.0" text="0.5">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" right="20.0" top="8.0" />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="155.0" prefHeight="32.0" prefWidth="246.0">
+                                                         <children>
+                                                            <Label text="Error aceptable">
+                                                               <HBox.margin>
+                                                                  <Insets left="25.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField fx:id="errorAceptable" prefHeight="25.0" prefWidth="100.0" text="0.01">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" right="20.0" top="8.0" />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="TOP_RIGHT" prefHeight="19.0" prefWidth="251.0">
+                                                         <children>
+                                                            <Label text="Funcion">
+                                                               <HBox.margin>
+                                                                  <Insets top="5.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <ChoiceBox fx:id="funcion" prefHeight="25.0" prefWidth="100.0">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </ChoiceBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                      <HBox alignment="TOP_RIGHT" prefHeight="20.0" prefWidth="251.0">
+                                                         <children>
+                                                            <Button mnemonicParsing="false" onAction="#generarRed" text="Generar">
+                                                               <HBox.margin>
+                                                                  <Insets right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets top="20.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab fx:id="pestanasFuncion" disable="true" text="Funcion">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <TableView fx:id="tablaFuncion" editable="true" prefHeight="296.0" prefWidth="291.0">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </TableView>
+                                                      <Button mnemonicParsing="false" onAction="#actualizarFuncion" prefHeight="25.0" prefWidth="80.0" text="Actualizar">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" right="20.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                  <Tab fx:id="pestanaPeso" disable="true" text="Pesos   ">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <TableView fx:id="tablaPesos" editable="true" prefHeight="296.0" prefWidth="291.0">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                         <columns>
+                                                            <TableColumn prefWidth="75.0" text="Column X" />
+                                                         </columns>
+                                                      </TableView>
+                                                      <Button mnemonicParsing="false" onAction="#actualizarPeso" prefHeight="25.0" prefWidth="80.0" text="Actualizar">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" right="20.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab fx:id="pestanaAprendizaje" disable="true" text="Aprendizaje">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label text="Patrones de entrada">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <TextArea fx:id="patronesEntrada" prefHeight="100.0" prefWidth="238.0" text="0,0,0,0;&#10;1,0,1,0;&#10;0,1,0,1;&#10;1,1,1,1;" />
+                                                      <Label text="Patrones de salida">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <TextArea fx:id="patronesSalida" prefHeight="100.0" prefWidth="238.0" text="0,0;&#10;0,1;&#10;1,0;&#10;1,1;" />
+                                                      <HBox alignment="TOP_RIGHT" prefHeight="38.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Label fx:id="errorEntradas" text="Error de formato" textFill="RED">
+                                                               <HBox.margin>
+                                                                  <Insets right="30.0" top="18.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Button mnemonicParsing="false" onAction="#ensenarPatrones" text="Enseñar">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="10.0" right="10.0" top="15.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" collapsible="false" maxWidth="297.0" minHeight="229.0" minWidth="297.0" prefHeight="229.0" prefWidth="297.0" text="Clasificar">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="193.0" prefWidth="295.0">
+                           <children>
+                              <VBox layoutX="64.0" layoutY="-1.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="19.0" prefWidth="276.0">
+                                       <children>
+                                          <Label text="Entradas a clasificar">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Hyperlink text="?" />
+                                          <Label fx:id="errorClasificar" text="Error de formato" textFill="RED" />
+                                       </children>
+                                    </HBox>
+                                    <TextArea fx:id="entradasClasificar" prefHeight="93.0" prefWidth="276.0" text="1,1,1,0.8;&#10;0.1,0.2,0,-0.1;&#10;1.2,0.1,0.8,0;" VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </TextArea>
+                                    <HBox prefHeight="27.0" prefWidth="276.0">
+                                       <children>
+                                          <Pane prefHeight="27.0" prefWidth="132.0" HBox.hgrow="ALWAYS">
+                                             <HBox.margin>
+                                                <Insets bottom="1.0" />
+                                             </HBox.margin>
+                                          </Pane>
+                                          <Button mnemonicParsing="false" onAction="#clasificarEntradas" text="Clasificar">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </VBox>
+         </left>
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+               <menus>
+                  <Menu mnemonicParsing="false" text="File">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Edit">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TitledPane animated="false" text="Graficos">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="772.0" prefWidth="1100.0">
+                           <children>
+                              <TabPane fx:id="tabPanelGraficos" minHeight="300.0" minWidth="500.0" prefHeight="415.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-10.0">
+                                 <tabs>
+                                    <Tab fx:id="topologiaGraf" text="Topologia">
+                                       <content>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                             <center>
+                                                <ScrollPane prefHeight="585.0" prefWidth="1122.0" BorderPane.alignment="CENTER">
+                                                   <content>
+                                                      <StackPane fx:id="canvas" prefHeight="150.0" prefWidth="200.0" />
+                                                   </content>
+                                                </ScrollPane>
+                                             </center>
+                                          </BorderPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab fx:id="aprendizajeGraf" text="Aprendizaje">
+                                       <content>
+                                          <AnchorPane minHeight="300.0" minWidth="500.0" prefHeight="415.0" prefWidth="1000.0">
+                                             <children>
+                                                <StackPane fx:id="canvasGrafico" prefHeight="415.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Resultados">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1100.0">
+                           <children>
+                              <TextArea fx:id="resultado" layoutX="27.6" layoutY="29.6" prefHeight="187.0" prefWidth="764.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
